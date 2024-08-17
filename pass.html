@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - Connectify</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Background color set to white */
+            color: #191414;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            width: 60%;
+        }
+
+        .forgot-password-container {
+            background-color: #f0f0f0; /* Lighter background color */
+            border-radius: 12px; /* More rounded corners */
+            padding: 40px; /* Increased padding */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            max-width: 450px;
+            width: 35%; /* Set width for the forgot password container */
+        }
+
+        h1 {
+            font-size: 40px; /* Slightly larger heading */
+            margin-bottom: 20px;
+            color: #25a55e; /* Changed heading color */
+        }
+
+        h2 {
+            font-size: 26px; /* Slightly larger subheading */
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555555;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #191414;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #e6e6e6;
+            color: #333333;
+        }
+
+        input::placeholder {
+            color: #999999;
+        }
+
+        button {
+            background-color: #25a55e;
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #191414;
+            color: #ffffff;
+        }
+
+        .links {
+            margin-top: 15px;
+            color: #333333;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #25a55e;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 120px; /* Increased width */
+            height: auto;
+        }
+
+        img {
+            display: block;
+            max-width: 600px; /* Increased image size */
+            height: auto;
+            margin: 20px auto; /* Centered image */
+            border-radius: 8px; /* Added rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Reset Your Password</h1>
+            <img src="pass.jpg" alt="description" />
+        </div>
+
+        <div class="forgot-password-container">
+            <h2>Forgot Password</h2>
+            <p>Enter your email address below, and we'll send you instructions to reset your password.</p>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Reset Link</button>
+                </div>
+            </form>
+            <div class="links">
+                <p><a href="/Login">Back to Login</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
