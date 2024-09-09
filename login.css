@@ -1,0 +1,17 @@
+/* Login Page Specific Styles */
+.login-container {
+    background-color: #e6e6e6;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    max-width: 450px;
+    width: 35%;
+}
+
+button {
+    background-color: #1d72b8;
+}
+
+button:hover {
+    background-color: #155a8a;
+}
