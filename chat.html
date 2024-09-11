@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with Contact - Connectify</title>
+    <title>Chat - Connectify</title>
     <link rel="stylesheet" href="chat.css">
 </head>
 
 <body>
-    <div class="container">
+    <div class="chat-area">
         <div class="chat-header">
-            Chat with John Doe
+            <p id="chat-with">Chat with John Doe</p>
         </div>
         <div class="chat-box">
             <div class="message received">
@@ -31,6 +31,18 @@
     </div>
 
     <script>
+        // Function to get query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the selected user's name from the query parameter
+        const selectedUser = getQueryParam('user') || 'John Doe'; // Default to 'John Doe' if no user is selected
+
+        // Update the chat header to display the selected user's name
+        document.getElementById('chat-with').textContent = `Chat with ${selectedUser}`;
+
         const inputField = document.querySelector('.input-area input');
         const chatBox = document.querySelector('.chat-box');
 
