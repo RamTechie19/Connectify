@@ -25,8 +25,8 @@
             </div>
         </div>
         <div class="input-area">
-            <input type="text" placeholder="Type a message...">
-            <button type="button">Send</button>
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button type="button" id="sendBtn">Send</button>
         </div>
     </div>
 
@@ -43,18 +43,31 @@
         // Update the chat header to display the selected user's name
         document.getElementById('chat-with').textContent = `Chat with ${selectedUser}`;
 
-        const inputField = document.querySelector('.input-area input');
+        const inputField = document.querySelector('#messageInput');
         const chatBox = document.querySelector('.chat-box');
+        const sendButton = document.querySelector('#sendBtn');
 
-        document.querySelector('.input-area button').addEventListener('click', () => {
+        // Function to send a message
+        function sendMessage() {
             const messageText = inputField.value;
             if (messageText.trim() !== '') {
                 const messageDiv = document.createElement('div');
                 messageDiv.classList.add('message', 'sent');
                 messageDiv.textContent = messageText;
                 chatBox.appendChild(messageDiv);
-                inputField.value = '';
-                chatBox.scrollTop = chatBox.scrollHeight;
+                inputField.value = ''; // Clear the input field
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            }
+        }
+
+        // Add event listener for the Send button
+        sendButton.addEventListener('click', sendMessage);
+
+        // Add event listener for the Enter key
+        inputField.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default behavior (e.g., form submission)
+                sendMessage();
             }
         });
     </script>
