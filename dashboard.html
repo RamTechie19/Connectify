@@ -10,72 +10,59 @@
 
 <body>
     <div class="sidebar">
-        <div class="profile-section">
-            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h3>John Doe</h3>
-            <p>Online</p>
-        </div>
         <h2>Contacts</h2>
-        <input type="text" placeholder="Search Contacts..." class="search-bar">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search contacts...">
+        </div>
         <ul class="contact-list">
-            <li class="contact" onclick="navigateToChat('John Doe')">
-                <img src="contact1.jpg" alt="John" class="contact-pic">
+            <li class="contact" data-name="John Doe">
                 <p>John Doe</p>
-                <span class="status online"></span>
             </li>
-            <li class="contact" onclick="navigateToChat('Jane Smith')">
-                <img src="contact2.jpg" alt="Jane" class="contact-pic">
+            <li class="contact" data-name="Jane Smith">
                 <p>Jane Smith</p>
-                <span class="status offline"></span>
             </li>
-            <li class="contact" onclick="navigateToChat('Mike Johnson')">
-                <img src="contact3.jpg" alt="Mike" class="contact-pic">
+            <li class="contact" data-name="Mike Johnson">
                 <p>Mike Johnson</p>
-                <span class="status online"></span>
             </li>
-            <!-- Add more contacts as needed -->
-        </ul>
-        <h2>Groups</h2>
-        <ul class="group-list">
-            <li class="group" onclick="navigateToGroupChat('Developers Group')">Developers Group</li>
-            <li class="group" onclick="navigateToGroupChat('Designers Group')">Designers Group</li>
         </ul>
     </div>
 
     <div class="chat-area">
         <div class="chat-header">
-            <div class="chat-profile">
-                <img src="john.jpg" alt="John">
-                <h3>John Doe</h3>
-                <p>Online</p>
-            </div>
+            <p>Select a contact to start chatting</p>
         </div>
         <div class="chat-box">
-            <div class="message received">
-                Hello! How are you?
-                <span class="timestamp">10:30 AM</span>
-            </div>
-            <div class="message sent">
-                I’m good! How about you?
-                <span class="timestamp">10:32 AM</span>
-            </div>
+            <!-- No chat is opened by default, this area will be populated when a contact is selected -->
         </div>
-        <div class="input-area">
+        <div class="input-area" style="display: none;">
             <input type="text" placeholder="Type a message...">
             <button type="button">Send</button>
         </div>
     </div>
 
     <script>
-        function navigateToChat(contactName) {
-            // Implement navigation to the chat page for a specific contact
-            window.location.href = "chat.html?contact=" + encodeURIComponent(contactName);
-        }
+        const contacts = document.querySelectorAll('.contact');
 
-        function navigateToGroupChat(groupName) {
-            // Implement navigation to the group chat page
-            window.location.href = "group_chat.html?group=" + encodeURIComponent(groupName);
-        }
+        contacts.forEach(contact => {
+            contact.addEventListener('click', () => {
+                const contactName = contact.dataset.name;
+                // Redirect to chat page with the selected contact's name as a query parameter
+                window.location.href = `chat.html?user=${encodeURIComponent(contactName)}`;
+            });
+        });
+
+        // Improved search functionality
+        document.getElementById('search').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            contacts.forEach(contact => {
+                const name = contact.dataset.name.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    contact.style.display = '';
+                } else {
+                    contact.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 
