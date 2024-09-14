@@ -16,7 +16,7 @@
 
         <div class="signup-container">
             <h2>Create Your Account</h2>
-            <form action="#" method="post">
+            <form id="signupForm" action="#" method="post">
                 <div class="form-group">
                     <label for="fullname">Full Name:</label>
                     <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
@@ -43,5 +43,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Handle the form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            
+            
+            
+            // Redirect to the homepage (or login page)
+            window.location.href = 'index.html'; // Change 'index.html' to the actual homepage or login page
+        });
+    </script>
 </body>
 </html>
