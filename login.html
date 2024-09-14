@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
     <div class="container">
         <div class="content">
@@ -16,7 +18,7 @@
 
         <div class="login-container">
             <h2>Login</h2>
-            <form action="#" method="post">
+            <form id="loginForm">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" placeholder="Enter your username" required>
@@ -26,7 +28,7 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
                 <div class="form-group">
-                    <button type="button" onclick="redirect()">Login</button>
+                    <button type="submit">Login</button>
                 </div>
             </form>
             <div class="links">
@@ -37,10 +39,21 @@
     </div>
 
     <script>
-        function redirect() {
-            alert("Let's Go to Chat...");
-            window.location.href = 'dashboard.html';
-        }
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form from submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === '' || password === '') {
+                alert('Please enter both username and password.');
+            } else {
+                // You can add additional security checks here, like checking the credentials with server-side code
+                // For now, this is basic frontend validation
+                window.location.href = 'index.html'; // Redirect to dashboard
+            }
+        });
     </script>
 </body>
+
 </html>
