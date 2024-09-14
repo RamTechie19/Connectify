@@ -1,28 +1,70 @@
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
-/* Chat area */
-.chat-area {
+/* Container to hold sidebar and chat */
+.container {
+    display: flex;
     width: 100%;
-    max-width: 900px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 25%;
+    background-color: #191414;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #25a55e;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact:hover {
+    background-color: #25a55e;
+}
+
+.contact p {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Chat Area Styles */
+.chat-area {
+    width: 75%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 100vh; /* Make it full height */
 }
 
+/* Chat Header */
 .chat-header {
     background-color: #191414;
     padding: 20px;
@@ -31,13 +73,15 @@ body {
     font-size: 22px;
 }
 
+/* Chat Box */
 .chat-box {
     flex-grow: 1;
     padding: 20px;
-    overflow-y: auto;
-    background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    background-color: #f4f4f9;
 }
 
 .message {
@@ -46,20 +90,27 @@ body {
     padding: 15px;
     border-radius: 12px;
     font-size: 16px;
+    word-wrap: break-word;
 }
 
+/* Our messages on the right */
 .message.sent {
     background-color: #25a55e;
     color: white;
     align-self: flex-end;
+    text-align: right;
+    border-bottom-right-radius: 0;
 }
 
+/* Other user's messages on the left */
 .message.received {
-    background-color: #f0f0f0;
+    background-color: #e6e6e6;
     align-self: flex-start;
+    text-align: left;
+    border-bottom-left-radius: 0;
 }
 
-/* Input area */
+/* Input Area */
 .input-area {
     display: flex;
     padding: 15px;
@@ -85,6 +136,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .input-area button:hover {
@@ -101,16 +153,9 @@ body {
     border-radius: 10px;
 }
 
-/* Media queries for responsive design */
-@media (max-width: 768px) {
-    .chat-area {
-        width: 100%;
-        max-width: none;
-        height: 100vh;
-        border-radius: 0;
-    }
-
-    .message {
-        max-width: 80%;
-    }
+/* Disabled input before selecting a contact */
+.input-area input:disabled, 
+.input-area button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
