@@ -10,35 +10,46 @@
 
 <body>
     <div class="container">
+        <!-- Sidebar with Contacts and Profile -->
         <div class="sidebar">
+            <div class="profile-section">
+                <img src="profile.jpg" alt="Profile" class="profile-pic">
+                <h3>Welcome, User!</h3>
+                <p>Status: Online</p>
+            </div>
             <h2>Contacts</h2>
-            <ul class="contact-list">
+            <input type="text" placeholder="Search contacts..." class="search-bar" id="contactSearch">
+            <ul class="contact-list" id="contactList">
                 <li class="contact" data-id="1">
+                    <img src="user1.jpg" alt="John Doe" class="contact-pic">
                     <p>John Doe</p>
                 </li>
                 <li class="contact" data-id="2">
+                    <img src="user2.jpg" alt="Jane Smith" class="contact-pic">
                     <p>Jane Smith</p>
                 </li>
                 <li class="contact" data-id="3">
+                    <img src="user3.jpg" alt="Mike Johnson" class="contact-pic">
                     <p>Mike Johnson</p>
                 </li>
             </ul>
         </div>
 
+        <!-- Chat Area -->
         <div class="chat-area">
             <div class="chat-header" id="chatHeader">
                 Select a contact to start chatting
             </div>
             <div class="chat-box" id="chatBox">
-                <!-- Messages will appear here -->
+                <!-- Chat messages will appear here -->
             </div>
             <div class="input-area">
-                <input type="text" id="messageInput" placeholder="Type a message...">
-                <button id="sendButton">Send</button>
+                <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+                <button id="sendButton" disabled>Send</button>
             </div>
         </div>
     </div>
-    
+
     <script src="chat.js"></script>
 </body>
 
